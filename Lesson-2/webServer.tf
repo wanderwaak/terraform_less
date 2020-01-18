@@ -15,6 +15,10 @@ echo "<h2>WebServer with IP: $myip</h2><br>Build by Terraform!" > /var/www/html/
 sudo service httpd start
 chkconfig httpd on
 EOF
+  tags = {
+    name  = "webserverbuil terraform"
+    owner = "NS"
+  }
 }
 
 
@@ -41,5 +45,10 @@ resource "aws_security_group" "my_webserver" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    name  = "webserver security group"
+    owner = "NS"
   }
 }
